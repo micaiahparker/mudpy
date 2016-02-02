@@ -1,16 +1,15 @@
 from mudpy_xml.xml_to_object import *
 
 
-class Object:
+class Buildable:
     def __init__(self, element):
-        self.model = element.attrib['model']
         self.name = element.attrib['name']
 
     def __str__(self):
         return self.name
 
 
-class Container(Object):
+class Container(Buildable):
     tag = "container"
 
     def __init__(self, element):
@@ -21,8 +20,8 @@ class Container(Object):
     def print_contents(self):
         ret = "\n"
         for content in self.contents:
-            ret += content
-        return ret + "\n"
+            ret += str(content)+'\n'
+        return ret
 
     def __str__(self):
         return "{}: {}".format(self.name, self.print_contents())
@@ -31,5 +30,33 @@ class Container(Object):
         return self.locked
 
 
+class Player(Buildable):
+    tag = "player"
+
+    def __init__(self, element):
+        super().__init__(element)
+        self.race = element.attrib['race']
+        self.role = element.attrib['role']
+        self.gender = element.attrib['gender']
+
+    def __str__(self):
+        return "{} is a {} {}.".format(self.name, self.race, self.role)
+
+
+class Weapon(Buildable):
+    tag = "weapon"
+
+    def __init__(self, element):
+        super().__init__(element)
+        self.attack = element.attrib['attack']
+        self.defense = element.attrib['defense']
+        self.hands = element.attrib['hands']
+
+    def __str__(self):
+        return "{} does {} attack and {} defense. Requires {} hands.".format(self.name, self.attack,
+                                                                             self.defense, self.hands)
+
 def load_objects():
-    add_item(Container)
+    add_items(Container, Player, Weapon)
+
+

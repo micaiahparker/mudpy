@@ -1,4 +1,0 @@
-<container locked="False" name="Some Room">
-    <player name="Wes" race="Human" role="Cleric" gender="Male"/>
-    <weapon name="Bass Cannon" attack="5" defense="0" hands="2"/>
-</container>

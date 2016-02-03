@@ -12,4 +12,4 @@ The maingoal of mudpy is to have a MUD framework that can fit most/all MUD needs
 
 #Contact
 
-If for some reasing you find this interesting and you want to get my attention you can email me at [micparke@nmu.edu](mailto:micparke@nmu.edu).
+If for some reason you find this interesting and you want to get my attention you can email me at [micparke@nmu.edu](mailto:micparke@nmu.edu).

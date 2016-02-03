@@ -8,6 +8,7 @@ class MudPyServer:
         self.server = self.loop.create_server(MudPyProtocol, port=port)
 
     def start(self):
+        print("Started")
         self.loop.run_until_complete(self.server)
         try:
             self.loop.run_forever()
@@ -17,3 +18,4 @@ class MudPyServer:
     def stop(self):
         if self.loop.is_running():
             self.loop.call_soon_threadsafe(self.loop.stop)
+        print("Stopped")

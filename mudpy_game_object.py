@@ -11,7 +11,6 @@ class MudPyGameObject:
     def send_all(self, player, data):
         for p in self.players:
             if p is not player:
-                p.transport.write(data)
-
+                p.send(data)
 
 main_game = MudPyGameObject()

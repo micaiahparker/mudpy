@@ -16,6 +16,9 @@ class MudPyProtocol(asyncio.Protocol):
     def data_received(self, data):
         game.send_all(self, data)
 
+    def send(self, data):
+        self.transport.write(data)
+
 
 
 

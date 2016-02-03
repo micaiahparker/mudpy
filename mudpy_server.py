@@ -1,6 +1,5 @@
 import asyncio
 from mudpy_protocol import MudPyProtocol
-from mudpy_game_object import main_game as game
 
 
 class MudPyServer:
@@ -18,8 +17,3 @@ class MudPyServer:
     def stop(self):
         if self.loop.is_running():
             self.loop.call_soon_threadsafe(self.loop.stop)
-
-
-
-
-

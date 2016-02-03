@@ -19,8 +19,6 @@ class MudPyProtocol(asyncio.Protocol):
     def send(self, data):
         self.transport.write(data)
 
-
-
-
-
+    def eof_received(self):
+        print("EOF Received")
 

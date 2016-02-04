@@ -31,6 +31,13 @@ class Buildable:
     def post_init(self):
         pass
 
+    def look(self, *args):
+        ret = '\n'
+        for arg in args:
+            for item in arg:
+                ret += "{}\n".format(item(str))
+        return ret
+
 add_known(Buildable)
 
 

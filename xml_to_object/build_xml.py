@@ -1,4 +1,15 @@
-from xml_to_object.item_database import *
+known = {}
+
+
+def add_known(*args):
+    for cls in args:
+        known[cls.tag] = cls
+
+
+def make_item(item):
+    if item.tag in known:
+        return known[item.tag](known)
+    return None
 
 
 class Buildable:

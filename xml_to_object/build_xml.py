@@ -11,5 +11,8 @@ class Buildable:
                 setattr(self, key, xml.attrib[key])
         for child in xml:
             if child.tag in known:
-                self.contents[child.attrib.name] = known[child.tag](child)
-
+                try:
+                    self.contents[child.tag][child.attrib['name']] = known[child.tag](child)
+                except KeyError:
+                    self.contents[child.tag] = {}
+                    self.contents[child.tag][child.attrib['name']] = known[child.tag](child)

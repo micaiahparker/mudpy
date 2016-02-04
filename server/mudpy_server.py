@@ -1,5 +1,6 @@
 import asyncio
-from mudpy_protocol import MudPyProtocol
+
+from server.mudpy_protocol import MudPyProtocol
 
 
 class MudPyServer:

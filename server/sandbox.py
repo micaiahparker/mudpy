@@ -1,4 +1,4 @@
-import mudpy_server
+from server import mudpy_server
 
 
 def test(port):

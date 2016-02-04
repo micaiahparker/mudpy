@@ -1,3 +1,6 @@
+from server.mudpy_parsers import *
+
+
 class MudPyGameObject:
     def __init__(self):
         self.players = []
@@ -12,5 +15,12 @@ class MudPyGameObject:
         for p in self.players:
             if p is not player:
                 p.send(data)
+
+    def get_data(self, player, data):
+        command = parse_data(data)
+        self.parse_command(player, command)
+
+    def parse_command(self, player, command):
+        pass
 
 main_game = MudPyGameObject()

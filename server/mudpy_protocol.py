@@ -1,5 +1,6 @@
 import asyncio
-from mudpy_game_object import main_game as game
+
+from server.mudpy_game_object import main_game as game
 
 
 class MudPyProtocol(asyncio.Protocol):
@@ -14,11 +15,8 @@ class MudPyProtocol(asyncio.Protocol):
         game.remove_player(self)
 
     def data_received(self, data):
-        game.send_all(self, data)
+        game.get_data(self, data)
 
     def send(self, data):
         self.transport.write(data)
-
-    def eof_received(self):
-        print("EOF Received")
 

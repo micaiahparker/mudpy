@@ -8,7 +8,7 @@ xml_string = """
             <player name="test player"/>
         </room>
     </game>
-"""
+    """
 
 test_xml = fromstring(xml_string)
 
@@ -25,7 +25,7 @@ def test_game_tag():
 
 def test_game_build_from():
     """test build from"""
-    assert_equals(game.Game.build_from, [game.__name__, game_objects.__name__])
+    assert_equals(game.Game.build_from, [game_objects.__name__])
 
 
 def test_game_name():

@@ -54,7 +54,7 @@ class Buildable:
         ret = ""
 
         for key in self.__dict__.keys():
-            if key in self.viewables:
+            if key in self.viewables or 'all' in self.viewables:
                 ret += list_dict(self.__dict__[key])
 
         return ret

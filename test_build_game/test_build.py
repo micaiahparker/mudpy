@@ -1,19 +1,25 @@
 from build_game.build import Build
 from xml.etree.ElementTree import parse
+from nose.tools import *
 
 test_xml = parse("test.xml").getroot()
 
 
 def test_build_init():
     """test build init"""
-    assert Build(test_xml)
+    assert_true(Build(test_xml))
 
 
 def test_build_tag():
     """test build tag"""
-    assert Build(test_xml).tag == 'build'
+    assert_equals(Build(test_xml).tag, 'build')
 
 
 def test_build_name():
     """test build name"""
-    assert Build(test_xml).name == ""
+    assert_equals(Build(test_xml).name, "test")
+
+
+def test_should_fail():
+    """should fail"""
+    assert_raises(AssertionError, assert_equals, Build(test_xml).name, "fail")

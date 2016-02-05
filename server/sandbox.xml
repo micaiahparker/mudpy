@@ -1,0 +1,5 @@
+<game>
+    <room name="First Room">
+        <chest name="Big Box"/>
+    </room>
+</game>

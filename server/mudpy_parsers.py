@@ -4,3 +4,7 @@ def parse_data(data):
     except UnicodeDecodeError:
         print("failed to decode.")
         return ""
+
+
+def parse_command(command):
+    return command.split()

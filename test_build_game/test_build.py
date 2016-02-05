@@ -40,4 +40,3 @@ def test_build_after_update():
     """test build after update"""
     b = build.Build(test_xml)
     assert_true('test' in b.known.keys())
-

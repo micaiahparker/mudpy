@@ -41,9 +41,3 @@ def test_build_after_update():
     b = build.Build(test_xml)
     assert_true('test' in b.known.keys())
 
-
-def test_child():
-    """test child"""
-    b = build.Build(test_xml)
-    assert_true(b.contents['test_name'].test_var == "1")
-    assert_true(b.contents['test_name'].name == 'test_name')

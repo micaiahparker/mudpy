@@ -10,13 +10,15 @@ class Build:
     tag = 'build'
     build_from = [__name__]
     known = {}
+    containers = {}
 
     def __init__(self, xml):
         self.name = ""
-        self.contents = {}
+        self.contents = []
         self.update_known()
         self.set_attrib(xml)
         self.set_children(xml)
+        self.sort_containers()
 
     def get_keys(self):
         return self.__dict__.keys()
@@ -42,7 +44,18 @@ class Build:
     def set_children(self, xml):
         for child in xml:
             if child.tag in self.known:
-                self.contents[child.attrib['name']] = self.make_item(child)
+                self.contents.append(self.make_item(child))
+
+    def sort_containers(self):
+        for content in self.contents:
+            for container in self.containers:
+                if content.tag == self.containers[container]:
+                    self.add_to_container(container, content)
+
+    def add_to_container(self, container, item):
+        if container not in self.__dict__.keys():
+            self.__dict__[container] = {}
+        self.__dict__[container][item.name] = item
 
 
 class Test(Build):

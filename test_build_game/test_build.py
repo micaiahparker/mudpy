@@ -30,12 +30,7 @@ def test_should_fail():
     assert_raises(AssertionError, assert_equals, Build(test_xml).name, "fail")
 
 
-def test_build_before_update():
-    """test build update"""
-    assert_false('test' in Build(test_xml).known)
-
-
 def test_build_after_update():
+    """test build after update"""
     b = Build(test_xml)
-    b.update()
     assert_true('test' in b.known.keys())

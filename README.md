@@ -8,6 +8,5 @@ The maingoal of mudpy is to have a MUD framework that can fit most/all MUD needs
 
 * Account
 * Character
-* Add more items
 * Server - using [asyncio](https://docs.python.org/3/library/asyncio.html)
-* Set up unit testing
+

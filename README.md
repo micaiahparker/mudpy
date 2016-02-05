@@ -1,4 +1,4 @@
-https://travis-ci.org/micaiahparker/mudpy.svg?branch=master
+![travis ci status](https://travis-ci.org/micaiahparker/mudpy.svg?branch=master)
 
 #mudpy
 

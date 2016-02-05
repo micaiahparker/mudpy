@@ -1,8 +1,8 @@
 from build_game.build import Build
-from xml.etree.ElementTree import parse
+from xml.etree.ElementTree import fromstring
 from nose.tools import *
 
-test_xml = parse("test.xml").getroot()
+test_xml = fromstring('<build name="test"/>')
 
 
 def test_build_init():

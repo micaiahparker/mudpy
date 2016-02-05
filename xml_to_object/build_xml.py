@@ -12,8 +12,27 @@ def make_item(item):
     return None
 
 
+def list_dict(adict):
+    ret = "\n"
+    for arg in adict:
+        ret += "{}\n".format(str(arg))
+
+    return ret
+
+
+def content_rules(inst, content):
+    if content.tag in known:
+        content = make_item(content)
+        try:
+            inst.__dict__[content.tag][content.name] = content
+        except KeyError:
+            inst.__dict__[content.tag] = {}
+            inst.__dict__[content.tag][content.name] = content
+
+
 class Buildable:
     tag = 'buildable'
+    viewables = []
 
     def __init__(self, xml):
         self.contents = []
@@ -24,20 +43,24 @@ class Buildable:
                 setattr(self, key, xml.attrib[key])
 
         for child in xml:
-            self.contents.append(make_item(child))
+            content_rules(self, child)
 
         self.post_init()
 
     def post_init(self):
         pass
 
-    def look(self, *args):
-        ret = '\n'
-        for arg in args:
-            for item in arg:
-                ret += "{}\n".format(item(str))
+    def examine(self):
+        ret = ""
+
+        for key in self.__dict__.keys():
+            if key in self.viewables:
+                ret += list_dict(self.__dict__[key])
+
         return ret
 
-add_known(Buildable)
+    def __str__(self):
+        return self.name + self.examine()
 
+add_known(Buildable)
 

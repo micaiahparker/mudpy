@@ -21,7 +21,7 @@ class Build:
     def get_keys(self):
         return self.__dict__.keys()
 
-    def set_key(self, key, xml):
+    def set_key_from_xml(self, key, xml):
         self.__dict__[key] = xml.attrib[key]
 
     def make_item(self, xml):
@@ -37,7 +37,7 @@ class Build:
     def set_attrib(self, xml):
         for attr in get_keys(xml):
             if attr in self.get_keys():
-                self.set_key(attr, xml)
+                self.set_key_from_xml(attr, xml)
 
     def set_children(self, xml):
         for child in xml:

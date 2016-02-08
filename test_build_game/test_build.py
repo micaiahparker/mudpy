@@ -4,7 +4,7 @@ from nose.tools import *
 
 xml_string = """
     <build name="test">
-        <test name="test_name" test_var = "1"/>
+        <test name="test_name" test_var = "1" test_bool="True"/>
     </build>
 """
 
@@ -34,6 +34,11 @@ def test_build_name():
 def test_should_fail():
     """should fail"""
     assert_raises(AssertionError, assert_equals, build.Build(test_xml).name, "fail")
+
+
+def test_process_bool():
+    """test process bool"""
+    assert_true(build.Build(test_xml).contents[0].test_bool, True)
 
 
 def test_build_after_update():

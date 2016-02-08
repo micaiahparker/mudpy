@@ -15,6 +15,7 @@ class Build:
     def __init__(self, xml):
         self.name = ""
         self.contents = []
+        self.desc = ""
         self.update_known()
         self.set_attrib(xml)
         self.set_children(xml)
@@ -24,7 +25,7 @@ class Build:
         return self.__dict__.keys()
 
     def set_key_from_xml(self, key, xml):
-        self.__dict__[key] = xml.attrib[key]
+        self.__dict__[key] = self.process_attr(xml.attrib[key])
 
     def make_item(self, xml):
         if xml.tag in self.known:
@@ -41,6 +42,14 @@ class Build:
             if attr in self.get_keys():
                 self.set_key_from_xml(attr, xml)
 
+    def process_attr(self, attr):
+        if attr == "true" or attr == "True":
+            return True
+        elif attr == "false" or attr == "False":
+            return False
+        else:
+            return attr
+
     def set_children(self, xml):
         for child in xml:
             if child.tag in self.known:
@@ -52,10 +61,27 @@ class Build:
                 if content.tag == self.containers[container]:
                     self.add_to_container(container, content)
 
+    def get_container(self, container):
+        return self.__dict__[container]
+
     def add_to_container(self, container, item):
         if container not in self.__dict__.keys():
             self.__dict__[container] = {}
         self.__dict__[container][item.name] = item
+
+    def get_container_string(self, container):
+        ret = '{}\n'.format(container)
+        ret += "".join(list(str(content)+'\n' for content in self.get_container(container)))
+        return ret
+
+    def get_all_containers_string(self):
+        ret = ""
+        for container in self.containers.keys():
+            ret += self.get_container(container)
+        return ret
+
+    def __str__(self):
+        return "{}: {}\n{}".format(self.name, self.desc, self.get_all_containers_string())
 
 
 class Test(Build):
@@ -63,4 +89,5 @@ class Test(Build):
 
     def __init__(self, xml):
         self.test_var = 0
+        self.test_bool = False
         super().__init__(xml)

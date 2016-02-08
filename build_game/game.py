@@ -1,12 +1,7 @@
-from build_game import build, game_objects
+from build_game import build, rooms
 
 
 class Game(build.Build):
     tag = 'game'
-    build_from = [game_objects.__name__]
+    build_from = [rooms.__name__]
     containers = {'rooms': 'room'}
-
-
-
-
-

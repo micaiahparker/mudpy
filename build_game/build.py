@@ -62,7 +62,10 @@ class Build:
                     self.add_to_container(container, content)
 
     def get_container(self, container):
-        return self.__dict__[container]
+        try:
+            return self.__dict__[container]
+        except KeyError:
+            return {}
 
     def add_to_container(self, container, item):
         if container not in self.__dict__.keys():
@@ -70,18 +73,19 @@ class Build:
         self.__dict__[container][item.name] = item
 
     def get_container_string(self, container):
-        ret = '{}\n'.format(container)
-        ret += "".join(list(str(content)+'\n' for content in self.get_container(container)))
+        ret = ""
+        for item in self.get_container(container):
+            ret += "{}\n".format(str(item))
         return ret
 
     def get_all_containers_string(self):
         ret = ""
         for container in self.containers.keys():
-            ret += self.get_container(container)
+            ret += self.get_container_string(container)
         return ret
 
     def __str__(self):
-        return "{}: {}\n{}".format(self.name, self.desc, self.get_all_containers_string())
+        return "{}\n{}\n{}".format(self.name, self.desc, self.get_all_containers_string())
 
 
 class Test(Build):

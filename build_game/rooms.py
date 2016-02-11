@@ -20,12 +20,6 @@ class Chest(build.Build):
         self.locked = False
         super().__init__(xml)
 
-    def open_chest(self):
-        if not self.locked:
-            return self.get_container_string('inventory')
-        else:
-            return '{} is locked'.format(self.name)
-
 
 class NPC(build.Build):
     tag = 'npc'

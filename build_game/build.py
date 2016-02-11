@@ -84,6 +84,9 @@ class Build:
             ret += self.get_container_string(container)
         return ret
 
+    def update(self, message):
+        print(message)
+
     def __str__(self):
         return "{}\n{}\n{}".format(self.name, self.desc, self.get_all_containers_string())
 

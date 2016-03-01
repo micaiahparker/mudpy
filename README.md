@@ -7,7 +7,7 @@ The main goal of mudpy is to have a MUD framework that can fit most/all MUD need
 #TODO - Short Term
 
 * Add context to make_item (turn "False" into False, "class=Bard" into Bard(), etc)
-
+* Flesh out design documents
 #TODO - Long Term
 
 * Account

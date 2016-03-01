@@ -17,8 +17,12 @@ def test_build_desc():
     assert b.desc == 'A buildable object'
 
 
+def test_id_no_tags():
+    assert b.id_score() == 0
+
+
 def test_id_score():
-    assert b.id_score(['Buildable']) == 2
+    assert b.id_score('Buildable') == 2
 
 
 

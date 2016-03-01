@@ -20,7 +20,7 @@ class Build:
     def get_id(self):
         return [word.lower() for word in self.name.split(' ') + self.desc.split(' ')]
 
-    def id_score(self, tags=[]):
+    def id_score(self, *tags):
         count = 0
         for tag in tags:
             count += self.get_id().count(tag.lower())

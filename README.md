@@ -4,13 +4,15 @@
 
 The main goal of mudpy is to have a MUD framework that can fit most/all MUD needs only by changing the XML files that define the game's contents.
 
-#TODO - Short Term
+#TODO 
 
-* Add context to make_item (turn "False" into False, "class=Bard" into Bard(), etc)
+* Have simple prototypes of or implying the following systems.
+* * [Server](design/server.md)
+* * [Game](design/game.md)
+* * [Characters](design/characters.md)
+* * [Users](design/users.md)
+
 * Flesh out design documents
-#TODO - Long Term
 
-* Account
-* Character
-* Server - using [asyncio](https://docs.python.org/3/library/asyncio.html)
+
 

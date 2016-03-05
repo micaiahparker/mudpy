@@ -14,10 +14,10 @@ class Build(metaclass=Buildable):
         self.build(xml)
 
     def get_keys(self):
-        return self.__dict__.keys()
+        return vars(self).keys()
 
     def set_value(self, key, value):
-        self.__setattr__(key, value)
+        setattr(self, key, value)
 
     def build(self, xml):
         for attr in xml.attrib:

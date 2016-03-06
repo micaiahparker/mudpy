@@ -13,16 +13,10 @@ class Build(metaclass=Buildable):
         self.contents = {}
         self.build(xml)
 
-    def get_keys(self):
-        return vars(self).keys()
-
-    def set_value(self, key, value):
-        setattr(self, key, value)
-
     def build(self, xml):
         for attr in xml.attrib:
-            if attr in self.get_keys():
-                self.set_value(attr, xml.attrib[attr])
+            if attr in vars(self).keys():
+                setattr(self, attr, xml.attrib[attr])
 
         for child in xml:
             if child.tag in self.known.keys():

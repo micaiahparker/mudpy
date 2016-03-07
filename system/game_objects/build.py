@@ -1,9 +1,4 @@
-class Buildable(type):
-    def __new__(mcs, *args, **kwargs):
-        return super().__new__(mcs, *args, **kwargs)
-
-
-class Build(metaclass=Buildable):
+class Build:
     tag = 'build'
     known = {}
 
@@ -21,11 +16,12 @@ class Build(metaclass=Buildable):
         for child in xml:
             if child.tag in self.known.keys():
                 self.add_item(child)
+            else:
+                raise BuildException(obj=self.tag, item=child.tag)
 
     def add_item(self, item):
-        if item.tag in self.known:
-            content = self.make_item(item)
-            self.contents[content.name] = content
+        content = self.make_item(item)
+        self.contents[content.name] = content
 
     def make_item(self, item):
         return self.known[item.tag](item)
@@ -40,8 +36,10 @@ class Build(metaclass=Buildable):
         return count
 
 
-
-
+class BuildException(BaseException):
+    def __init__(self, *args, obj, item, **kwargs):
+        print("{} cannot build item {}.".format(obj, item))
+        super().__init__(*args, **kwargs)
 
 
 

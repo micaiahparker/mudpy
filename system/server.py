@@ -1,18 +1,17 @@
 import asyncio
-
-clients = []
+from system import ClientHolder
 
 
 class MUDProtocol(asyncio.Protocol):
     def connection_made(self, transport):
         self.transport = transport
-        clients.append(self)
+        ClientHolder().add(self)
 
     def connection_lost(self, exc):
-        clients.remove(self)
+        ClientHolder().remove(self)
 
     def data_received(self, data):
-        print(data.decode())
+        ClientHolder().send(data)
 
 
 class MUDServer:

@@ -1,4 +1,3 @@
-from .build import Build
-from .world import World
+from .world import World, Room, Melee, Ranged
 
-__all__ = [World]
+__all__ = [World, Room, Melee, Ranged]

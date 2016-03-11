@@ -1,11 +1,11 @@
 from system.game_objects import Build
 
 
-class Sword(Build):
-    tag = 'sword'
+class Melee(Build):
+    tag = 'melee'
 
 
-class Spear(Build):
-    tag = 'spear'
+class Ranged(Build):
+    tag = 'ranged'
 
 

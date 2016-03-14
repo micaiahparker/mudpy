@@ -1,4 +1,4 @@
-from system.game_objects import Build
+from system.game_objects.build import Build
 
 
 class Room(Build):

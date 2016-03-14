@@ -1,4 +1,4 @@
-from system import Singleton
+from system.patterns.singleton import Singleton
 
 
 class ClientHolder(metaclass=Singleton):

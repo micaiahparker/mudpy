@@ -1,5 +1,5 @@
 import asyncio
-from system import ClientHolder
+from system.clients import ClientHolder
 
 
 class MUDProtocol(asyncio.Protocol):

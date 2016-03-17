@@ -1,3 +1,7 @@
+import sys
+import inspect
+
+
 class Build:
     tag = 'build'
     known = {}
@@ -20,20 +24,13 @@ class Build:
                 raise BuildException(obj=self.tag, item=child.tag)
 
     def add_item(self, item):
-        content = self.make_item(item)
-        self.contents[content.name] = content
+        self.contents[item.tag].append(self.make_item(item))
 
     def make_item(self, item):
         return self.known[item.tag](item)
 
-    def get_id(self):
-        return [word.lower() for word in self.name.split(' ') + self.desc.split(' ')]
-
-    def id_score(self, *tags):
-        count = 0
-        for tag in tags:
-            count += self.get_id().count(tag.lower())
-        return count
+    def get_class_members(self):
+        return inspect.getmembers(sys.modules[self.__module__], inspect.isclass)
 
 
 class BuildException(BaseException):

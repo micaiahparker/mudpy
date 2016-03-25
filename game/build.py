@@ -1,7 +1,3 @@
-import sys
-import inspect
-
-
 class Build:
     tag = 'build'
     known = {}
@@ -29,15 +25,8 @@ class Build:
     def make_item(self, item):
         return self.known[item.tag](item)
 
-    def get_class_members(self):
-        return inspect.getmembers(sys.modules[self.__module__], inspect.isclass)
-
 
 class BuildException(BaseException):
     def __init__(self, *args, obj, item, **kwargs):
         print("{} cannot build item {}.".format(obj, item))
         super().__init__(*args, **kwargs)
-
-
-
-

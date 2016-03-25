@@ -1,4 +1,4 @@
-from game.build import Build
+from game import Build
 
 
 class Melee(Build):
@@ -7,5 +7,3 @@ class Melee(Build):
 
 class Ranged(Build):
     tag = 'ranged'
-
-

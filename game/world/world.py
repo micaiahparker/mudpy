@@ -1,6 +1,5 @@
-from game.build import Build
+from game import Build
 
 
 class World(Build):
     tag = 'world'
-

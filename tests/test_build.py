@@ -1,12 +1,11 @@
-from xml.etree.ElementTree import fromstring
-
 from nose.tools import *
 
+import game
 from game.build import Build, BuildException
 from game.tools import get_buildable_classes
-import game
+from .sample_xml import *
 
-test_xml = fromstring("<build name='Buildable' desc='A buildable object'/>")
+test_xml = basic_build_xml()
 b = Build(test_xml)
 
 

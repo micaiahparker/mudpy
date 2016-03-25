@@ -1,3 +1,6 @@
+from game.tools import get_buildable_classes
+
+
 class Build:
     tag = 'build'
     known = {}

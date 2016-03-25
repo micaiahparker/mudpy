@@ -4,16 +4,6 @@
 
 The main goal of mudpy is to have a MUD framework that can fit most/all MUD needs only by changing the XML files that define the game's contents.
 
-#TODO 
-* __Develop an effective way to manage "known" in Build subclasses__
-
-* Have simple prototypes of or implying the following systems.
-    * [Server](design/server.md)
-    * [Game](design/game.md)
-    * [Characters](design/characters.md)
-    * [Users](design/users.md)
-
-* Flesh out design documents
 
 
 

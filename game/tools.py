@@ -3,7 +3,11 @@ from inspect import isclass, getmembers
 
 
 def get_modules(pkg):
-    return [(finder, name) for finder, name, ispkg in walk_packages(pkg.__path__) if not ispkg]
+    if type(pkg) == str:
+        path = pkg
+    else:
+        path = pkg.__path__
+    return [(finder, name) for finder, name, ispkg in walk_packages(path) if not ispkg]
 
 
 def get_buildable_classes(pkg):

@@ -3,9 +3,9 @@ from nose.tools import *
 import game
 from game.build import Build, BuildException
 from game.tools import get_buildable_classes
-from .sample_xml import *
+from tests.sample_xml import sample_build, sample_build_bad
 
-test_xml = basic_build_xml()
+test_xml = sample_build()
 b = Build(test_xml)
 
 
@@ -24,7 +24,7 @@ def test_build_desc():
 
 
 def test_build_exception():
-    assert_raises(BuildException, Build, fromstring("<build name='' desc=''><bad/></build>"))
+    assert_raises(BuildException, Build, sample_build_bad())
 
 
 def test_get_buildable():

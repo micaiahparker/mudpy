@@ -1,10 +1,8 @@
 from game.build import Build
-from game.command import command
 
 
-class MudpyObject(Build):
+class Object(Build):
     tag = "object"
 
-
-
-
+    def send(self, command):
+        pass

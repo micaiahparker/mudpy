@@ -1,10 +1,5 @@
-class command:
-    def __init__(self, *args):
-        pass
-
-    def __enter__(self):
-        pass
-
-    def __exit__(self):
-        pass
-
+class Command:
+    def __init__(self, send, recv, line):
+        self.send = send
+        self.recv = recv
+        self.line = line

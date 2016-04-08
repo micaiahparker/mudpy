@@ -16,12 +16,3 @@ def sample_build():
 def sample_build_unknown():
     return "<build name='Buildable' desc='Contains a bad tag'><bad/></build>"
 
-
-@from_string
-def sample_build_no_name():
-    return "<build name='Buildable' desc='raises no name exception'><test/></build>"
-
-
-@from_string
-def sample_object():
-    return "<object name='test' desc='Testing This Works'/>"

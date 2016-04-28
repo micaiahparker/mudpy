@@ -1,6 +1,4 @@
 from nose.tools import *
-
-import game
 from game.build import *
 from tests.sample_xml import *
 

@@ -16,3 +16,8 @@ def sample_build():
 def sample_build_unknown():
     return "<build name='Buildable' desc='Contains a bad tag'><bad/></build>"
 
+
+@from_string
+def sample_build_gameobject():
+    return "<game_object name='Test' desc='The First Game Object'></game_object>"
+

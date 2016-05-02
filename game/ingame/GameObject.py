@@ -6,7 +6,3 @@ class GameObject(Build, Commandable):
     def __init__(self, xml):
         super().__init__(xml)
 
-
-
-
-

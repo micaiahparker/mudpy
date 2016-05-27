@@ -1,0 +1,63 @@
+<mudpy>
+    <races start="start">
+        <race name="Human"/>
+    </races>
+    <roles>
+        <role name="Fighter">
+            <min stat="str" value="9"/>
+            <max stat="int" value="17"/>
+            <armors group="metal"/>
+            <weapons group="melee"/>
+        </role>
+    </roles>
+    <weapons group="melee">
+        <weapon type="sword" range="5">
+            <attack type="stab"/>
+            <attack type="slash"/>
+            <defend type="block"/>
+            <defend type="parry"/>
+        </weapon>
+        <weapon type="hammer" range="6">
+            <attack type="crush"/>
+        </weapon>
+        <weapon type="spear" range="10">
+            <attack type="stab"/>
+        </weapon>
+    </weapons>
+    <weapons group="ranged">
+        <weapon type="sling" ammo="stone"/>
+    </weapons>
+    <armors>
+        <armor type="plate" group="metal">
+            <block type="slash"/>
+            <block type="crush"/>
+        </armor>
+        <armor type="padded" group="fabric">
+            <block type="slash"/>
+        </armor>
+    </armors>
+    <materials group="metal">
+        <material type="iron"/>
+    </materials>
+    <materials group="fabric">
+        <material type="leather"/>
+    </materials>
+    <stats group="base" sides="6" dice="3">
+        <stat name="Strength" nick="str"/>
+        <stat name="Intelligence" nick="int"/>
+        <stat name="Wisdom" nick="wis"/>
+        <stat name="Dexterity" nick="dex"/>
+        <stat name="Charisma" nick="cha"/>
+        <stat name="Constitution" nick="con"/>
+    </stats>
+    <items>
+        <item type="chest"/>
+    </items>
+    <world>
+        <zone type="room" id="start" name="Test" desc="If you are reading this you haven't added your own game file.">
+            <item type="chest">
+                <weapon type="sword"/>
+            </item>
+        </zone>
+    </world>
+</mudpy>

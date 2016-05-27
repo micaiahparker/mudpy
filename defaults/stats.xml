@@ -1,0 +1,11 @@
+<mudpy>
+    <stats group="base" roll="3d6">
+        <stat key="str" name="Strength"/>
+        <stat key="int" name="Intelligence"/>
+        <stat key="dex" name="Dexterity"/>
+        <stat key="wis" name="Wisdom"/>
+        <stat key="con" name="Constitution"/>
+        <stat key="cha" name="Charisma"/>
+    </stats>
+    <stat key="health" roll="1d6"/>
+</mudpy>

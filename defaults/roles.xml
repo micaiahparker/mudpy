@@ -1,0 +1,10 @@
+<mudpy>
+    <roles group="base">
+        <role name="Fighter" plural="Fighters">
+            <stat key="health" roll="1d8"/>
+        </role>
+        <role name="Cleric" plural="Clerics"/>
+        <role name="Thief" plural="Thieves"/>
+        <role name="Magic-User" plural="Magic-Users"/>
+    </roles>
+</mudpy>

@@ -1,3 +1,11 @@
-<race name="default">
-
-</race>
+<mudpy>
+    <races group="player">
+        <race name="Human" plural="Humans"/>
+        <race name="Elf" plural="Elves"/>
+        <race name="Dwarf" plural="Dwarves"/>
+        <race name="Halfling" plural="Halflings"/>
+        <race name="Half-Elf" plural="Half-Elves"/>
+        <race name="Half-Orc" plural="Half-Orcs"/>
+        <race name="Half-Ogre" plural="Half-Ogres"/>
+    </races>
+</mudpy>
